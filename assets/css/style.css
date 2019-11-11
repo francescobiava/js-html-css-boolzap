@@ -18,3 +18,23 @@ li {
   display: table;
   clear: both;
 }
+
+/* main layout */
+.global {
+  width: 100vw;
+  height: 100vh;
+}
+
+.side {
+  width: 30%;
+  height: 100vh;
+  float: left;
+  border: 1px solid black; /* DEBUG */
+}
+
+.main {
+  width: 70%;
+  height: 100vh;
+  float: left;
+  border: 1px solid black; /*DEBUG*/
+}
