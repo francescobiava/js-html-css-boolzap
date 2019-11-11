@@ -78,6 +78,40 @@ img {
 #side .get-notification {
   height: 80px;
   background-color: #9de1fe;
+  display: flex;
+  align-items: center;
+}
+
+#side .get-notification > i {
+  margin: 20px;
+  font-size: 1.2em;
+  padding: 12px 10px;
+  color: #9de1fe;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+#side .get-notification h4 {
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+#side .get-notification p {
+  font-size: 0.8em;
+  font-weight: 200;
+}
+
+#side .get-notification i.fa-chevron-right {
+  margin-left: 5px;
+  font-size: 0.75em;
+}
+
+#side .get-notification:hover {
+  cursor: pointer;
+}
+
+#side .get-notification:hover p {
+  text-decoration: underline;
 }
 
 #side .search-chat {
