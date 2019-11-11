@@ -19,7 +19,7 @@ li {
   clear: both;
 }
 
-/* main layout */
+/* global layout */
 #global {
   width: 100vw;
   height: 100vh;
@@ -29,14 +29,12 @@ li {
   width: 30%;
   height: 100vh;
   float: left;
-  border: 1px solid black; /* DEBUG */
 }
 
 #main {
   width: 70%;
   height: 100vh;
   float: left;
-  border: 1px solid black; /*DEBUG*/
 }
 
 .top {
@@ -64,4 +62,16 @@ li {
 #side .chats li {
   height: 70px;
   border-bottom: 1px solid black; /* DEBUG mettere poi il border al testo in modo che non ci sia sotto l'immagine */
+}
+
+/* main part layout */
+#main .conversation {
+  height: calc(100% - 60px - 60px);
+  background-color: #e5ddd5;
+  background-image: url(../img/conversation-background.png);
+}
+
+#main .type-message {
+  height: 60px;
+  background-color: #eee;
 }
