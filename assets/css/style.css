@@ -40,7 +40,28 @@ li {
 }
 
 .top {
-  width: 100%;
-  height: 50px;
+  height: 60px;
   background-color: #eee;
+}
+
+/* side layout */
+#side .get-notification {
+  height: 80px;
+  background-color: #9de1fe;
+}
+
+#side .search-chat {
+  height: 40px;
+  background-color: #eee;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#side .chats {
+  height: calc(100% - 60px - 80px - 40px);
+  overflow-y: auto;
+}
+
+#side .chats li {
+  height: 70px;
+  border-bottom: 1px solid black; /* DEBUG mettere poi il border al testo in modo che non ci sia sotto l'immagine */
 }
