@@ -7,6 +7,7 @@
 
 body {
   font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 li {
@@ -17,6 +18,12 @@ li {
   content: "";
   display: table;
   clear: both;
+}
+
+img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
 }
 
 /* global layout */
@@ -40,9 +47,34 @@ li {
 .top {
   height: 60px;
   background-color: #eee;
+  padding-left: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top .options {
+  display: flex;
+}
+
+.top .options li {
+  margin-right: 30px;
+}
+
+.top .options i {
+  font-size: 1.2em;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.options i:hover {
+  cursor: pointer;
 }
 
 /* side layout */
+#side .top img:hover {
+  cursor: pointer;
+}
+
 #side .get-notification {
   height: 80px;
   background-color: #9de1fe;
@@ -65,6 +97,31 @@ li {
 }
 
 /* main part layout */
+#main .profile-conversation {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+#main .profile-conversation:hover {
+  cursor: pointer;
+}
+
+#main .profile-conversation .name-conversation {
+  margin-left: 20px;
+}
+
+#main .profile-conversation h4 {
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+#main .profile-conversation p {
+  font-size: 0.8em;
+  font-weight: 200;
+  color: rgba(0, 0, 0, 0.5);
+}
+
 #main .conversation {
   height: calc(100% - 60px - 60px);
   background-color: #e5ddd5;
