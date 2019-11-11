@@ -228,6 +228,39 @@ img {
   height: calc(100% - 60px - 60px);
   background-color: #e5ddd5;
   background-image: url(../img/conversation-background.png);
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#main .conversation .sent-message {
+  min-height: 30px;
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+#main .conversation .received-message {
+  min-height: 30px;
+  margin-bottom: 10px;
+}
+
+#main .conversation .sent-message span {
+  display: inline-block;
+  max-width: 55%;
+  margin-right: 65px;
+  font-size: 0.9em;
+  padding: 5px 20px;
+  background-color: #DCF8C6;
+  border-radius: 8px;
+}
+
+#main .conversation .received-message span {
+  display: inline-block;
+  max-width: 55%;
+  margin-left: 65px;
+  font-size: 0.9em;
+  padding: 5px 20px;
+  background-color: #fff;
+  border-radius: 8px;
 }
 
 #main .type-message {
