@@ -240,11 +240,13 @@ img {
   min-height: 30px;
   margin-bottom: 10px;
   text-align: right;
+  position: relative;
 }
 
 #main .conversation .received-message {
   min-height: 30px;
   margin-bottom: 10px;
+  position: relative;
 }
 
 #main .conversation .sent-message span {
@@ -265,6 +267,30 @@ img {
   padding: 5px 20px;
   background-color: #fff;
   border-radius: 8px;
+}
+
+#main .conversation .sent-message::before {
+  content: "";
+  background-color: #DCF8C6;
+  transform: rotate(45deg);
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  position: absolute;
+  top: 14px;
+  right: 62px;
+}
+
+#main .conversation .received-message::before {
+  content: "";
+  background-color: #fff;
+  transform: rotate(45deg);
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  position: absolute;
+  top: 14px;
+  left: 62px;
 }
 
 #main .type-message {
