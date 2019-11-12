@@ -1,12 +1,13 @@
 $(document).ready(function () {
   
+  sendButton();
   sendMessage();
 
 });
 
 // FUNCTIONS
 function sendMessage() {
-  $('#send-message').click(function() {
+  $('#send-button').click(function() {
     if ($('.type-message input').val() !== '') { 
       // recupero il messaggio scritto dall'utente
       var message = $('.type-message input').val();
@@ -32,6 +33,17 @@ function sendMessage() {
         // svuoto l'input
         $('.type-message input').val('');
       }  
+    }
+  });
+}
+
+function sendButton() {
+  $('.type-message input').keyup(function() {
+    if ($('.type-message input').val() !== '') {
+      $('#send-button').removeClass('fa-microphone').addClass('fa-paper-plane');
+    }
+    if ($('.type-message input').val() == '') {
+      $('#send-button').addClass('fa-microphone').removeClass('fa-paper-plane');
     }
   });
 }
