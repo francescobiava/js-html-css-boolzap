@@ -232,6 +232,10 @@ img {
   flex-direction: column-reverse;
 }
 
+#main .conversation ul {
+  overflow-y: auto;
+}
+
 #main .conversation .sent-message {
   min-height: 30px;
   margin-bottom: 10px;
