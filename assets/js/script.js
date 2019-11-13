@@ -13,9 +13,9 @@ function conversation() {
     if ($('.type-message input').val() !== '') { 
       // recupero il messaggio scritto dall'utente
       var message = $('.type-message input').val();
-      // inserisco il messaggio nella copia presa dal template e aggiungo al li la classe per messaggio inviato
+      // inserisco il messaggio nella copia presa dal template e aggiungo la classe per messaggio inviato
       var liMessage = $('#template li').clone().addClass('sent-message');
-      liMessage.find('span').text(message);
+      liMessage.find('.message-text').text(message);
       // appendo dove mi serve
       $('.conversation ul').append(liMessage);
       // svuoto l'input
@@ -32,9 +32,9 @@ function conversation() {
       if ($('.type-message input').val() !== '') { 
         // recupero il messaggio scritto dall'utente
         var message = $('.type-message input').val();
-        // inserisco il messaggio nella copia presa dal template e aggiungo al li la classe per messaggio inviato
+        // inserisco il messaggio nella copia presa dal template e aggiungo la classe per messaggio inviato
         var liMessage = $('#template li').clone().addClass('sent-message');
-        liMessage.find('span').text(message);
+        liMessage.find('.message-text').text(message);
         // appendo dove mi serve
         $('.conversation ul').append(liMessage);
         // svuoto l'input
@@ -52,7 +52,7 @@ function conversation() {
 function receiveMessage() {
   // prendo struttura da template, inserisco classe per messaggio ricevuto e aggiungo testo
   var liMessage = $('#template li').clone().addClass('received-message');
-  liMessage.find('span').text('Hello there!');
+  liMessage.find('.message-text').text('Hello there!');
   // appendo dove mi serve
   $('.conversation ul').append(liMessage);
   // scroll

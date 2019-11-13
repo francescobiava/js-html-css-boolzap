@@ -260,26 +260,38 @@ img {
   position: relative;
 }
 
-#main .conversation .sent-message span {
+#main .conversation .sent-message .message {
   display: inline-block;
   max-width: 55%;
   margin-right: 65px;
-  font-size: 0.9em;
-  padding: 5px 20px;
+  padding: 5px 45px 6px 20px;
   background-color: #DCF8C6;
   border-radius: 8px;
   word-break: break-all;
+  position: relative;
 }
 
-#main .conversation .received-message span {
+#main .conversation .received-message .message {
   display: inline-block;
   max-width: 55%;
   margin-left: 65px;
-  font-size: 0.9em;
-  padding: 5px 20px;
+  padding: 5px 45px 6px 20px;
   background-color: #fff;
   border-radius: 8px;
   word-break: break-all;
+  position: relative;
+}
+
+#main .conversation .message-text {
+  font-size: 0.9em;
+}
+
+#main .conversation .message-time {
+  font-size: 0.6em;
+  color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  right: 6px;
+  bottom: 4px;
 }
 
 #main .conversation .sent-message::before {
@@ -333,4 +345,9 @@ img {
 
 #main .type-message input::placeholder {
   color: rgba(0, 0, 0, 0.6);
+}
+
+/* hide template */
+#template {
+  display: none;
 }
