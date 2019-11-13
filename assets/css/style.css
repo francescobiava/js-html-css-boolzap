@@ -1,4 +1,4 @@
-/* general */
+/* GENERAL */
 * {
   margin: 0;
   padding: 0;
@@ -26,7 +26,7 @@ img {
   border-radius: 50%;
 }
 
-/* global layout */
+/* GLOBAL LAYOUT */
 #global {
   width: 100vw;
   height: 100vh;
@@ -70,11 +70,13 @@ img {
   cursor: pointer;
 }
 
-/* side layout */
+/* SIDE LAYOUT */
+/* top */
 #side .top img:hover {
   cursor: pointer;
 }
 
+/* sezione get-notification */
 #side .get-notification {
   height: 80px;
   background-color: #9de1fe;
@@ -114,6 +116,7 @@ img {
   text-decoration: underline;
 }
 
+/* blocco per cercare contatti */
 #side .search-chat {
   height: 50px;
   background-color: #eee;
@@ -153,6 +156,7 @@ img {
   padding-left: 20px;
 }
 
+/* sezione lista chat */
 #side .chats {
   height: calc(100% - 60px - 80px - 50px);
   overflow-y: auto;
@@ -209,7 +213,8 @@ img {
   height: 70px;
 }
 
-/* main part layout */
+/* MAIN PART LAYOUT */
+/* top */
 #main .profile-conversation {
   height: 60px;
   display: flex;
@@ -235,6 +240,7 @@ img {
   color: rgba(0, 0, 0, 0.5);
 }
 
+/* conversazione */
 #main .conversation {
   height: calc(100% - 60px - 60px);
   background-color: #e5ddd5;
@@ -318,6 +324,7 @@ img {
   left: 62px;
 }
 
+/* sezione per scrivere messaggi */
 #main .type-message {
   height: 60px;
   background-color: #eee;
