@@ -7,6 +7,7 @@ $(document).ready(function () {
 
 // FUNCTIONS
 function sendMessage() {
+  var scroll = 0;
   $('#send-button').click(function() {
     if ($('.type-message input').val() !== '') { 
       // recupero il messaggio scritto dall'utente
@@ -18,6 +19,9 @@ function sendMessage() {
       $('.conversation ul').append(liMessage);
       // svuoto l'input
       $('.type-message input').val('');
+      // scroll
+      scroll += $('.sent-message').height();
+      $('#main .conversation ul').scrollTop(scroll);      
     }
   });
   $(document).on('keydown',function(e) {
@@ -32,6 +36,9 @@ function sendMessage() {
         $('.conversation ul').append(liMessage);
         // svuoto l'input
         $('.type-message input').val('');
+        // scroll
+        scroll += $('.sent-message').height();
+        $('#main .conversation ul').scrollTop(scroll);      
       }  
     }
   });
