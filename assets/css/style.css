@@ -257,6 +257,7 @@ img {
   padding: 5px 20px;
   background-color: #DCF8C6;
   border-radius: 8px;
+  word-break: break-all;
 }
 
 #main .conversation .received-message span {
@@ -267,6 +268,7 @@ img {
   padding: 5px 20px;
   background-color: #fff;
   border-radius: 8px;
+  word-break: break-all;
 }
 
 #main .conversation .sent-message::before {
