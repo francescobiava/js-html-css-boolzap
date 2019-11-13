@@ -1,5 +1,6 @@
 $(document).ready(function () {
   
+  searchContact();
   sendButton();
   conversation();
 
@@ -64,6 +65,23 @@ function sendButton() {
     }
     if ($('.type-message input').val() == '') {
       $('#send-button').addClass('fa-microphone').removeClass('fa-paper-plane');
+    }
+  });
+}
+
+function searchContact () {
+  $('.search-box input').keyup(function() {
+    if ($('.search-box input').val() !== '') {
+      $('.search-box i').removeClass('fa-search').addClass('fa-arrow-left');
+      var search = $('.search-box input').val();      
+      var elementsHide = $('.chats h4').not(':contains('+ search +')');
+      var elementShow = $('.chats h4:contains('+ search +')');
+      elementsHide.parents('li').hide();
+      elementShow.parents('li').show();
+    }           
+    if ($('.search-box input').val() == '') {
+      $('.search-box i').addClass('fa-search').removeClass('fa-arrow-left');
+      $('.chats li').show();
     }
   });
 }

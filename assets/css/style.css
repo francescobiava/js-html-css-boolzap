@@ -183,6 +183,7 @@ img {
 #side .chats p {
   font-size: 0.8em;
   font-weight: 200;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 #side .chats .chat-preview {
