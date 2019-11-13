@@ -23,6 +23,7 @@ function conversation() {
       // scroll
       scroll += $('#main .conversation li').height();
       $('#main .conversation ul').scrollTop(scroll);
+      $('#main .name-conversation p').text('typing...');
       setTimeout(receiveMessage, 1000);
     }
   });
@@ -42,6 +43,7 @@ function conversation() {
         scroll += $('#main .conversation li').height();
         $('#main .conversation ul').scrollTop(scroll);
         setTimeout(receiveMessage, 1000);
+        $('#main .name-conversation p').text('typing...');
       }  
     }
   });
@@ -56,6 +58,7 @@ function receiveMessage() {
   // scroll
   scroll += $('#main .conversation li').height();
   $('#main .conversation ul').scrollTop(scroll);
+  $('#main .name-conversation p').text('last seen');
 }
 
 function sendButton() {
