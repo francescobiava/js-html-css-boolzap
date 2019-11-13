@@ -1,12 +1,12 @@
 $(document).ready(function () {
   
   sendButton();
-  sendMessage();
+  conversation();
 
 });
 
 // FUNCTIONS
-function sendMessage() {
+function conversation() {
   var scroll = 0;
   $('#send-button').click(function() {
     if ($('.type-message input').val() !== '') { 
@@ -20,8 +20,9 @@ function sendMessage() {
       // svuoto l'input
       $('.type-message input').val('');
       // scroll
-      scroll += $('.sent-message').height();
-      $('#main .conversation ul').scrollTop(scroll);      
+      scroll += $('#main .conversation li').height();
+      $('#main .conversation ul').scrollTop(scroll);
+      setTimeout(receiveMessage, 1000);
     }
   });
   $(document).on('keydown',function(e) {
@@ -37,11 +38,23 @@ function sendMessage() {
         // svuoto l'input
         $('.type-message input').val('');
         // scroll
-        scroll += $('.sent-message').height();
-        $('#main .conversation ul').scrollTop(scroll);      
+        scroll += $('#main .conversation li').height();
+        $('#main .conversation ul').scrollTop(scroll);
+        setTimeout(receiveMessage, 1000);
       }  
     }
   });
+}
+
+function receiveMessage() {
+  // prendo struttura da template, inserisco classe per messaggio ricevuto e aggiungo testo
+  var liMessage = $('#template li').clone().addClass('received-message');
+  liMessage.find('span').text('Hello there!');
+  // appendo dove mi serve
+  $('.conversation ul').append(liMessage);
+  // scroll
+  scroll += $('#main .conversation li').height();
+  $('#main .conversation ul').scrollTop(scroll);
 }
 
 function sendButton() {
