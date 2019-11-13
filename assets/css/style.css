@@ -309,8 +309,10 @@ img {
 }
 
 #main .type-message input {
+  display: inline-block;
   width: 100%;
   height: 65%;
+  padding-right: 15px;
   font-size: 1em;
   text-indent: 20px;
   background-color: #fff;

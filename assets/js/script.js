@@ -12,8 +12,8 @@ function sendMessage() {
     if ($('.type-message input').val() !== '') { 
       // recupero il messaggio scritto dall'utente
       var message = $('.type-message input').val();
-      // inserisco il messaggio nella copia presa dal template
-      var liMessage = $('#template .sent-message').clone();
+      // inserisco il messaggio nella copia presa dal template e aggiungo al li la classe per messaggio inviato
+      var liMessage = $('#template li').clone().addClass('sent-message');
       liMessage.find('span').text(message);
       // appendo dove mi serve
       $('.conversation ul').append(liMessage);
@@ -29,8 +29,8 @@ function sendMessage() {
       if ($('.type-message input').val() !== '') { 
         // recupero il messaggio scritto dall'utente
         var message = $('.type-message input').val();
-        // inserisco il messaggio nella copia presa dal template
-        var liMessage = $('#template .sent-message').clone();
+        // inserisco il messaggio nella copia presa dal template e aggiungo al li la classe per messaggio inviato
+        var liMessage = $('#template li').clone().addClass('sent-message');
         liMessage.find('span').text(message);
         // appendo dove mi serve
         $('.conversation ul').append(liMessage);
