@@ -10,12 +10,17 @@ $(document).ready(function () {
 function conversation() {
   var scroll = 0;
   $('#send-button').click(function() {
-    if ($('.type-message input').val() !== '') { 
+    if ($('.type-message input').val() !== '') {
+      // salvo l'orario
+      var x = new Date();
+      var hours = x.getHours();
+      var minutes = x.getMinutes();
       // recupero il messaggio scritto dall'utente
       var message = $('.type-message input').val();
-      // inserisco il messaggio nella copia presa dal template e aggiungo la classe per messaggio inviato
+      // inserisco il messaggio e l'orario nella copia presa dal template e aggiungo la classe per messaggio inviato
       var liMessage = $('#template li').clone().addClass('sent-message');
       liMessage.find('.message-text').text(message);
+      liMessage.find('.message-time').text(hours + ':' + minutes);
       // appendo dove mi serve
       $('.conversation ul').append(liMessage);
       // svuoto l'input
@@ -29,12 +34,17 @@ function conversation() {
   });
   $(document).on('keydown',function(e) {
     if(e.which == 13) {
-      if ($('.type-message input').val() !== '') { 
+      if ($('.type-message input').val() !== '') {
+        // salvo l'orario
+        var x = new Date();
+        var hours = x.getHours();
+        var minutes = x.getMinutes();
         // recupero il messaggio scritto dall'utente
         var message = $('.type-message input').val();
-        // inserisco il messaggio nella copia presa dal template e aggiungo la classe per messaggio inviato
+        // inserisco il messaggio e l'orario nella copia presa dal template e aggiungo la classe per messaggio inviato
         var liMessage = $('#template li').clone().addClass('sent-message');
         liMessage.find('.message-text').text(message);
+        liMessage.find('.message-time').text(hours + ':' + minutes);
         // appendo dove mi serve
         $('.conversation ul').append(liMessage);
         // svuoto l'input
@@ -50,15 +60,20 @@ function conversation() {
 }
 
 function receiveMessage() {
+  // salvo l'orario
+  var x = new Date();
+  var hours = x.getHours();
+  var minutes = x.getMinutes();
   // prendo struttura da template, inserisco classe per messaggio ricevuto e aggiungo testo
   var liMessage = $('#template li').clone().addClass('received-message');
   liMessage.find('.message-text').text('Hello there!');
+  liMessage.find('.message-time').text(hours + ':' + minutes);
   // appendo dove mi serve
   $('.conversation ul').append(liMessage);
   // scroll
   scroll += $('#main .conversation li').height();
   $('#main .conversation ul').scrollTop(scroll);
-  $('#main .name-conversation p').text('last seen');
+  $('#main .name-conversation p').text('last seen today at ' + hours + ':' + minutes);
 }
 
 function sendButton() {
