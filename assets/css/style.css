@@ -213,6 +213,10 @@ img {
   height: 70px;
 }
 
+#side .chats li:hover {
+  cursor: pointer;
+}
+
 /* MAIN PART LAYOUT */
 /* top */
 #main .profile-conversation {
@@ -333,6 +337,11 @@ img {
   top: 12px;
 }
 
+#main .conversation .message-delete:hover {
+  background-color: #f4f5f5;
+  cursor: pointer;
+}
+
 #main .conversation .message-delete.hide {
   display: none;
 }
@@ -373,6 +382,10 @@ img {
   margin: 0 20px;
   font-size: 1.4em;
   color: rgba(0, 0, 0, 0.5);
+}
+
+#main .type-message i:hover {
+  cursor: pointer;
 }
 
 #main .type-message input {
