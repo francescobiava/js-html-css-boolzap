@@ -1,12 +1,27 @@
 $(document).ready(function () {
   
   searchContact();
+  selectChat();
   sendButton();
   conversation();
 
 });
 
 // FUNCTIONS
+function selectChat () {
+  // al click sul nome della chat
+  $('#side .chats li').click(function() {
+    // rimuovo la classe open agli altri e la aggiungo a quello cliccato
+    $('#side .chats li').removeClass('open');
+    $(this).addClass('open');
+    // recupero l'attributo data-contact dalla conversazione selezionata
+    var dataContact = $(this).attr('data-contact');
+    // cerco la conversazione con lo stesso attributo e la rendo visibile mentre nascondo le altre
+    $('#main .conversation ul').addClass('hide');
+    $('#main .conversation ul[data-contact=' + dataContact + ']').removeClass('hide');
+  });
+}
+
 function conversation() {
   var scroll = 0;
   // al click sul pulsante per inviare
@@ -24,7 +39,7 @@ function conversation() {
       liMessage.find('.message-text').text(message);
       liMessage.find('.message-time').text(hours + ':' + minutes);
       // appendo dove mi serve
-      $('.conversation ul').append(liMessage);
+      $('.conversation ul:not(.hide)').append(liMessage);
       // svuoto l'input
       $('.type-message input').val('');
       // scroll
@@ -52,7 +67,7 @@ function conversation() {
         liMessage.find('.message-text').text(message);
         liMessage.find('.message-time').text(hours + ':' + minutes);
         // appendo dove mi serve
-        $('.conversation ul').append(liMessage);
+        $('.conversation ul:not(.hide)').append(liMessage);
         // svuoto l'input
         $('.type-message input').val('');
         // scroll
@@ -77,7 +92,7 @@ function receiveMessage() {
   liMessage.find('.message-text').text('Hello there!');
   liMessage.find('.message-time').text(hours + ':' + minutes);
   // appendo dove mi serve
-  $('.conversation ul').append(liMessage);
+  $('.conversation ul:not(.hide)').append(liMessage);
   // scroll
   scroll += $('#main .conversation li').height();
   $('#main .conversation ul').scrollTop(scroll);

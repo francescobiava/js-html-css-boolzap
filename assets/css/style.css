@@ -253,6 +253,10 @@ img {
   overflow-y: auto;
 }
 
+#main .conversation ul.hide {
+  display: none;
+}
+
 #main .conversation .sent-message {
   min-height: 30px;
   margin-bottom: 10px;
