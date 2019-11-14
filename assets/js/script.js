@@ -16,6 +16,12 @@ function selectChat () {
     $(this).addClass('open');
     // recupero l'attributo data-contact dalla conversazione selezionata
     var dataContact = $(this).attr('data-contact');
+    // recupero il nome del contatto selezionato e l'orario dalla preview della chat
+    var nameContact = $(this).find('h4').text();
+    var lastSeen = $(this).find('.time').text();
+    // inserisco il nome nel top della conversazione e metto ultimo accesso
+    $('#main .top .name-conversation h4').text(nameContact);
+    $('#main .top .name-conversation p').text('last seen today at ' + lastSeen);
     // cerco la conversazione con lo stesso attributo e la rendo visibile mentre nascondo le altre
     $('#main .conversation ul').addClass('hide');
     $('#main .conversation ul[data-contact=' + dataContact + ']').removeClass('hide');
@@ -45,10 +51,14 @@ function conversation() {
       // scroll
       scroll += $('#main .conversation li').height();
       $('#main .conversation ul').scrollTop(scroll);
+      // inserisco il messaggio nella preview delle chat
+      $('#side .chats li.open p').text(message);
+      // inserisco l'orario nella preview della chat
+      $('#side .chats li.open .time').text(hours + ':' + minutes);
       // inserisco la scritta che l'altro sta scrivendo
       $('#main .name-conversation p').text('typing...');
       // richiamo la funzione per ricevere il messaggio dopo 1 secondo
-      setTimeout(receiveMessage, 1000);
+      setTimeout(receiveMessage, 2000);
     }
   });
   // quando premo enter
@@ -73,10 +83,14 @@ function conversation() {
         // scroll
         scroll += $('#main .conversation li').height();
         $('#main .conversation ul').scrollTop(scroll);
+        // inserisco il messaggio nella preview delle chat
+        $('#side .chats li.open p').text(message);
+        // inserisco l'orario nella preview della chat
+        $('#side .chats li.open .time').text(hours + ':' + minutes);
         // inserisco la scritta che l'altro sta scrivendo
         $('#main .name-conversation p').text('typing...');
         // richiamo la funzione per ricevere il messaggio dopo 1 secondo
-        setTimeout(receiveMessage, 1000);
+        setTimeout(receiveMessage, 2000);
       }  
     }
   });
@@ -96,6 +110,10 @@ function receiveMessage() {
   // scroll
   scroll += $('#main .conversation li').height();
   $('#main .conversation ul').scrollTop(scroll);
+  // inserisco il messaggio nella preview della chat
+  $('#side .chats li.open p').text('Hello there!');
+  // inserisco l'orario nella preview della chat
+  $('#side .chats li.open .time').text(hours + ':' + minutes);
   // setto l'ultimo accesso
   $('#main .name-conversation p').text('last seen today at ' + hours + ':' + minutes);
 }

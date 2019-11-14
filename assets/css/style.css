@@ -304,6 +304,39 @@ img {
   bottom: 4px;
 }
 
+#main .conversation .message-option {
+  font-size: 0.7em;
+  color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 2px;
+  right: 8px;
+  display: none;
+}
+
+#main .conversation .message-option.show {
+  display: block;
+}
+
+#main .conversation .message-option:hover {
+  cursor: pointer;
+}
+
+#main .conversation .message-delete {
+  width: max-content;
+  font-size: 0.8em;
+  color: #000;
+  background-color: #fff;
+  padding: 8px 15px;
+  border-radius: 5px;
+  position: absolute;
+  right: 5px;
+  top: 12px;
+}
+
+#main .conversation .message-delete.hide {
+  display: none;
+}
+
 #main .conversation .sent-message::before {
   content: "";
   background-color: #DCF8C6;
