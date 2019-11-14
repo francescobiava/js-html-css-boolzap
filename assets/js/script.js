@@ -4,6 +4,7 @@ $(document).ready(function () {
   selectChat();
   sendButton();
   conversation();
+  deleteMessage();
 
 });
 
@@ -25,6 +26,24 @@ function selectChat () {
     // cerco la conversazione con lo stesso attributo e la rendo visibile mentre nascondo le altre
     $('#main .conversation ul').addClass('hide');
     $('#main .conversation ul[data-contact=' + dataContact + ']').removeClass('hide');
+  });
+}
+
+function deleteMessage() {
+  // hover (mouse enter e leave) sul messaggio per far comparire la freccia delle opzioni
+  $('#main .conversation').on('mouseenter', '.message', function() {
+    $(this).find('.message-option').addClass('show');
+  });
+  $('#main .conversation').on('mouseleave', '.message', function() {
+    $(this).find('.message-option').removeClass('show');
+  });
+  // al click sulla freccia delle opzioni appare l'opzione per cancellare il messaggio
+  $('#main .conversation').on('click', '.message-option', function() {
+    $(this).siblings('.message-delete').toggleClass('hide');
+  });
+  // al click su delete messaggio lo cancello
+  $('#main .conversation').on('click', '.message-delete', function() {
+    $(this).parents('li').remove();
   });
 }
 
