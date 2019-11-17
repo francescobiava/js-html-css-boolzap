@@ -54,15 +54,13 @@ function conversation() {
     // se c'è un messaggio scritto
     if ($('.type-message input').val() !== '') {
       // salvo l'orario
-      var x = new Date();
-      var hours = x.getHours();
-      var minutes = x.getMinutes();
+      var time = getTime();
       // recupero il messaggio scritto dall'utente
       var message = $('.type-message input').val();
       // inserisco il messaggio e l'orario nella copia presa dal template e aggiungo la classe per messaggio inviato
       var liMessage = $('#template li').clone().addClass('sent-message');
       liMessage.find('.message-text').text(message);
-      liMessage.find('.message-time').text(hours + ':' + minutes);
+      liMessage.find('.message-time').text(time);
       // appendo dove mi serve
       $('.conversation ul:not(.hide)').append(liMessage);
       // svuoto l'input
@@ -73,7 +71,7 @@ function conversation() {
       // inserisco il messaggio nella preview delle chat
       $('#side .chats li.open p').text(message);
       // inserisco l'orario nella preview della chat
-      $('#side .chats li.open .time').text(hours + ':' + minutes);
+      $('#side .chats li.open .time').text(time);
       // inserisco la scritta che l'altro sta scrivendo
       $('#main .name-conversation p').text('typing...');
       // richiamo la funzione per ricevere il messaggio dopo 1 secondo
@@ -86,15 +84,13 @@ function conversation() {
       // se c'è un messaggio scritto
       if ($('.type-message input').val() !== '') {
         // salvo l'orario
-        var x = new Date();
-        var hours = x.getHours();
-        var minutes = x.getMinutes();
+        var time = getTime();
         // recupero il messaggio scritto dall'utente
         var message = $('.type-message input').val();
         // inserisco il messaggio e l'orario nella copia presa dal template e aggiungo la classe per messaggio inviato
         var liMessage = $('#template li').clone().addClass('sent-message');
         liMessage.find('.message-text').text(message);
-        liMessage.find('.message-time').text(hours + ':' + minutes);
+        liMessage.find('.message-time').text(time);
         // appendo dove mi serve
         $('.conversation ul:not(.hide)').append(liMessage);
         // svuoto l'input
@@ -105,7 +101,7 @@ function conversation() {
         // inserisco il messaggio nella preview delle chat
         $('#side .chats li.open p').text(message);
         // inserisco l'orario nella preview della chat
-        $('#side .chats li.open .time').text(hours + ':' + minutes);
+        $('#side .chats li.open .time').text(time);
         // inserisco la scritta che l'altro sta scrivendo
         $('#main .name-conversation p').text('typing...');
         // richiamo la funzione per ricevere il messaggio dopo 1 secondo
@@ -117,13 +113,11 @@ function conversation() {
 
 function receiveMessage() {
   // salvo l'orario
-  var x = new Date();
-  var hours = x.getHours();
-  var minutes = x.getMinutes();
+  var time = getTime();
   // prendo struttura da template, inserisco classe per messaggio ricevuto e aggiungo testo e orario
   var liMessage = $('#template li').clone().addClass('received-message');
   liMessage.find('.message-text').text('Hello there!');
-  liMessage.find('.message-time').text(hours + ':' + minutes);
+  liMessage.find('.message-time').text(time);
   // appendo dove mi serve
   $('.conversation ul:not(.hide)').append(liMessage);
   // scroll
@@ -132,9 +126,9 @@ function receiveMessage() {
   // inserisco il messaggio nella preview della chat
   $('#side .chats li.open p').text('Hello there!');
   // inserisco l'orario nella preview della chat
-  $('#side .chats li.open .time').text(hours + ':' + minutes);
+  $('#side .chats li.open .time').text(time);
   // setto l'ultimo accesso
-  $('#main .name-conversation p').text('last seen today at ' + hours + ':' + minutes);
+  $('#main .name-conversation p').text('last seen today at ' + time);
 }
 
 function sendButton() {
@@ -177,4 +171,20 @@ function searchContact () {
       $('.chats li').show();
     }
   });
+}
+
+// funzione per ricavare l'orario
+function getTime() {
+  var x = new Date();
+  var hours = addZero(x.getHours());
+  var minutes = addZero(x.getMinutes());
+  return hours + ':' + minutes;
+}
+
+// funzione per aggiungere gli zeri all'orario
+function addZero(i) {
+  if (i < 10) {
+    i = '0' + i;
+  }
+  return i;
 }
